@@ -107,7 +107,6 @@ int main() {
 
     int a[m][m];
 
-    // Read matrix elements
     printf("Enter the elements of the matrix:\n");
     for (i = 0; i < m; i++) {
         for (j = 0; j < m; j++) {
@@ -115,7 +114,6 @@ int main() {
         }
     }
 
-    // Display matrix
     printf("\nMatrix:\n");
     for (i = 0; i < m; i++) {
         for (j = 0; j < m; j++) {
@@ -126,14 +124,12 @@ int main() {
 
     int found = 0;
 
-    // Find saddle point
     for (i = 0; i < m; i++) {
 
         min = a[i][0];
         pos[0][0] = i;
         pos[0][1] = 0;
 
-        // Minimum in the row
         for (j = 1; j < m; j++) {
             if (a[i][j] < min) {
                 min = a[i][j];
@@ -142,7 +138,6 @@ int main() {
             }
         }
 
-        // Maximum in the column
         j = pos[0][1];
         max = a[0][j];
         pos[1][0] = 0;
@@ -156,7 +151,6 @@ int main() {
             }
         }
 
-        // Check for saddle point
         if (min == max && pos[0][0] == pos[1][0] && pos[0][1] == pos[1][1]) {
             printf("\nSaddle point found: %d at position (%d, %d)\n",
                    min, pos[0][0], pos[0][1]);
